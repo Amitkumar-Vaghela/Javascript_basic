@@ -1,0 +1,44 @@
+1. Adding/Removing Elements
+push(item) → Adds an item to the end of the array.
+pop() → Removes the last item from the array.
+unshift(item) → Adds an item to the beginning of the array.
+shift() → Removes the first item from the array.
+splice(start, deleteCount, item1, item2, ...) → Adds or removes elements at a specific index.
+slice(start, end) → Returns a shallow copy of a portion of the array.
+
+2. Iterating Over Arrays
+forEach(callback) → Iterates over elements without returning a new array.
+map(callback) → Returns a new array with modified elements.
+filter(callback) → Returns a new array with elements that match a condition.
+reduce(callback, initialValue) → Reduces the array to a single value.
+some(callback) → Returns true if at least one element matches the condition.
+every(callback) → Returns true if all elements match the condition.
+
+3. Searching & Finding
+indexOf(item) → Returns the first index of the item or -1 if not found.
+lastIndexOf(item) → Returns the last index of the item.
+includes(item) → Returns true if the item exists in the array.
+find(callback) → Returns the first element that matches the condition.
+findIndex(callback) → Returns the index of the first element that matches the condition.
+
+4. Sorting & Reversing
+sort(compareFunction) → Sorts the array (default is lexicographical).
+reverse() → Reverses the array in place.
+toSorted(compareFunction) → Returns a sorted copy without modifying the original.
+toReversed() → Returns a reversed copy without modifying the original.
+
+5. Joining & Splitting
+join(separator) → Converts an array to a string with a specified separator.
+split(separator) (on strings) → Converts a string to an array.
+
+6. Combining & Copying
+concat(arr1, arr2, ...) → Merges multiple arrays into one.
+flat(depth) → Flattens nested arrays up to a specified depth.
+flatMap(callback) → Maps each element and flattens the result.
+
+7. Checking & Testing
+isArray(value) → Checks if a value is an array (Array.isArray(value)).
+
+8. Filling & Transforming
+fill(value, start, end) → Fills elements with a specific value.
+copyWithin(target, start, end) → Copies elements within the same array.
