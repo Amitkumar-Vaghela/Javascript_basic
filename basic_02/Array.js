@@ -64,31 +64,6 @@ let concatenatedFruits = fruits.reduce((acc, fruit) => acc + " " + fruit);
 console.log("Concatenated Fruits:", concatenatedFruits); // "Apple Cherry Peach Pineapple"
 
 
-//output
-/*
-Initial Array: [ 'Apple', 'Banana', 'Cherry' ]
-First Element: Apple
-Second Element: Banana
-Array Length: 3
-After Modification: [ 'Apple', 'Orange', 'Cherry' ]
-After Push: [ 'Apple', 'Orange', 'Cherry', 'Mango' ]
-After Pop: [ 'Apple', 'Orange', 'Cherry' ]
-Removed Element: Mango
-After Unshift: [ 'Grapes', 'Apple', 'Orange', 'Cherry' ]
-After Shift: [ 'Apple', 'Orange', 'Cherry' ]
-Removed First Element: Grapes
-Sliced Array: [ 'Orange', 'Cherry' ]
-After Splice: [ 'Apple', 'Pineapple', 'Peach', 'Cherry' ]
-Joined String: Apple, Pineapple, Peach, Cherry
-After Reverse: [ 'Cherry', 'Peach', 'Pineapple', 'Apple' ]
-After Sort: [ 'Apple', 'Cherry', 'Peach', 'Pineapple' ]
-Uppercase Fruits: [ 'APPLE', 'CHERRY', 'PEACH', 'PINEAPPLE' ]
-Fruits starting with P: [ 'Peach', 'Pineapple' ]
-Concatenated Fruits: Apple Cherry Peach Pineapple
-
-*/
-
-
 // Creating an array
 let fruits = ["Apple", "Banana", "Cherry", "Mango", "Pineapple"];
 console.log("Initial Array:", fruits);
