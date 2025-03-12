@@ -26,3 +26,16 @@ console.log("Symbol Property Value type:", typeof myUser[mySym]);
 
 // Checking if the object is frozen
 console.log("Is myUser frozen?", Object.isFrozen(myUser)); // Should return true
+
+
+
+
+
+// to remove erro comment Freeze onject myUser
+// gretting name which taken from myUser object
+myUser.greeting = function(){
+    console.log(`Hello, ${this.name}`);
+}
+
+console.log(myUser.greeting());
+
