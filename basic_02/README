@@ -1,0 +1,87 @@
+# Objects in JavaScript
+
+An **object** in JavaScript is a collection of key-value pairs, where keys are strings and values can be of any data type, including other objects or functions.
+
+### Creating an Object
+
+```javascript
+const person = {
+  name: "John Doe",
+  age: 30,
+  isStudent: false,
+  address: {
+    city: "New York",
+    country: "USA"
+  },
+  greet: function() {
+    return `Hello, my name is ${this.name}`;
+  }
+};
+```
+
+### Accessing Object Properties
+
+```javascript
+console.log(person.name); // "John Doe"
+console.log(person["age"]); // 30
+console.log(person.address.city); // "New York"
+console.log(person.greet()); // "Hello, my name is John Doe"
+```
+
+### Modifying Object Properties
+
+```javascript
+person.age = 31;
+person.email = "john@example.com"; // Adds a new property
+```
+
+## Arrays in JavaScript
+
+An **array** is an ordered list of values, where each value is assigned an index starting from 0.
+
+### Creating an Array
+
+```javascript
+const fruits = ["Apple", "Banana", "Cherry"];
+```
+
+### Accessing Array Elements
+
+```javascript
+console.log(fruits[0]); // "Apple"
+console.log(fruits.length); // 3
+```
+
+### Modifying an Array
+
+```javascript
+fruits.push("Mango"); // Adds at the end
+fruits.unshift("Orange"); // Adds at the beginning
+fruits.pop(); // Removes last element
+fruits.shift(); // Removes first element
+```
+
+### Iterating Over an Array
+
+```javascript
+fruits.forEach((fruit) => console.log(fruit));
+```
+
+### Objects Inside an Array
+
+```javascript
+const users = [
+  { id: 1, name: "Alice" },
+  { id: 2, name: "Bob" }
+];
+console.log(users[1].name); // "Bob"
+```
+
+## Conclusion
+
+- **Objects** are best for representing structured data with named properties.
+- **Arrays** are best for ordered lists of values.
+- Both can be combined to create complex data structures.
+
+Happy coding! 🚀
+
