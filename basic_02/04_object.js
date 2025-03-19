@@ -1,20 +1,75 @@
-let obj1 = { name: "Alice", age: 25 };
-let obj2 = Object.assign({}, obj1);
+// Creating an object using the Object constructor (No literal object)
+const myUser = new Object();
+myUser.name = "Amit";
+myUser.age = 22;
+console.log(myUser);
 
-obj2.age = 30;
-console.log(obj1.age); // 25 (obj1 remains unchanged)
+// Creating an object using object literal syntax
+const LiteralObject = {
+    email: "av90@gmail.com",
+    Fullname: {
+        USername: {
+            firstname: "Amit",
+            lastname: "Vaghela"
+        }
+    }
+};
+console.log(LiteralObject.hasOwnProperty("email")); // true
+console.log(LiteralObject.hasOwnProperty("Phone")); // flase
 
-//or
+// 1️⃣ Object.create() - Creates a new object with an existing prototype
+const person = {
+    greet: function () {
+        return `Hello, my name is ${this.name}`;
+    }
+};
 
-let obj1 = { name: "Alice", age: 25 };
-let obj2 = { name: "Amit", age: 15 };
+const user = Object.create(person);
+user.name = "Amit";
+console.log(user.greet()); // Output: Hello, my name is Amit
 
-let obj3 = { ...obj1 , ...obj2};
-console.log(obj3); //  name : Alice , Age
+// 2️⃣ Object.prototype.hasOwnProperty() - Checks if a property exists directly on an object
+console.log(user.hasOwnProperty("name")); // true
+console.log(user.hasOwnProperty("greet")); // false (inherited from prototype)
 
-let obj = { name: "Alice", age: 25, city: "New York" };
+// 3️⃣ Object.prototype.toString() - Returns a string representation of an object
+console.log(user.toString()); // Output: [object Object]
 
-Object.keys(obj).forEach(key => {
-    console.log("Key:", key);
-    console.log("Value:", obj[key]);
-});
+// 4️⃣ Object.prototype.valueOf() - Returns the primitive value of an object
+const num = new Number(100);
+console.log(num.valueOf()); // Output: 100
+
+// 5️⃣ Constructor function with prototype methods
+function User(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+// 6️⃣ Adding methods using prototype
+User.prototype.getDetails = function () {
+    return `${this.name} is ${this.age} years old.`;
+};
+
+const user1 = new User("Amit", 22);
+console.log(user1.getDetails()); // Output: Amit is 22 years old.
+
+// 7️⃣ Object.prototype.isPrototypeOf() - Checks if an object is a prototype of another
+console.log(person.isPrototypeOf(user)); // Output: true
+
+// 8️⃣ Extending built-in prototypes (Array.prototype)
+Array.prototype.customLength = function () {
+    return `Array has ${this.length} elements.`;
+};
+
+const numbers = [1, 2, 3, 4];
+console.log(numbers.customLength()); // Output: Array has 4 elements.
+
+// 9️⃣ Object.keys() - Returns an array of an object's own property names
+console.log(Object.keys(user1)); // Output: ["name", "age"]
+
+// 🔟 Object.assign() - Copies properties from one object to another
+const target = { a: 1 };
+const source = { b: 2, c: 3 };
+Object.assign(target, source);
+console.log(target); // Output: { a: 1, b: 2, c: 3 }
+
