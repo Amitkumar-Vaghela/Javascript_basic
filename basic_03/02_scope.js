@@ -60,3 +60,29 @@ counter(); // 1
 counter(); // 2
 counter(); // 3
 
+
+// nested multiple layer scope
+function firstLevel() {
+    let firstVar = "I am from firstLevel";
+
+    function secondLevel() {
+        let secondVar = "I am from secondLevel";
+
+        function thirdLevel() {
+            let thirdVar = "I am from thirdLevel";
+
+            console.log(firstVar); // ✅ Accessible
+            console.log(secondVar); // ✅ Accessible
+            console.log(thirdVar); // ✅ Accessible
+        }
+
+        thirdLevel();
+        console.log(thirdVar); // ❌ ERROR: Not accessible outside thirdLevel
+    }
+
+    secondLevel();
+}
+
+firstLevel();
+
+
