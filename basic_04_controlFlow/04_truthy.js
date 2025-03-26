@@ -28,3 +28,42 @@ checkValue(null);
 checkValue({});
 checkValue(NaN);
 checkValue(" ");
+
+
+
+/*
+
+Truthy & Falsy Values in JavaScript
+
+Truthy Values:
+1 → true
+hello → true
+true → true
+ → true
+[object Object] → true
+false → true
+Infinity → true
+-1 → true
+Sun Mar 23 2025 12:34:56 GMT+0000 (UTC) → true
+
+Falsy Values:
+0 → false
+ → false
+null → false
+undefined → false
+NaN → false
+false → false
+
+Checking values in conditions:
+JavaScript is TRUTHY ✅
+0 is FALSY ❌
+ is TRUTHY ✅
+null is FALSY ❌
+[object Object] is TRUTHY ✅
+NaN is FALSY ❌
+  is TRUTHY ✅
+
+
+
+
+*/
