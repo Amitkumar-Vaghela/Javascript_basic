@@ -1,1 +1,33 @@
 
+# JavaScript Basics
+
+Welcome to the **JavaScript Basics** repository! This repository contains fundamental JavaScript concepts and examples to help you understand and practice JavaScript.
+
+## 📌 Topics Covered
+- Variables & Data Types
+- Functions & Scope
+- Loops & Conditionals
+- Arrays & Objects
+- Events & DOM Manipulation
+- ES6+ Features
+
+## 🛠 Prerequisites
+- Basic understanding of HTML & CSS
+- A code editor like VS Code
+- A web browser (Chrome, Firefox, etc.)
+
+## 🚀 Getting Started
+1. Clone this repository:
+   ```sh
+   git clone https://github.com/Amitkumar-Vaghela/Javascript_basic.git
+2. Navigate your project folder
+  ```sh
+    cd Javascript_basic
+
+3.Open the files in your browser or editor and start coding!
+
+🤝 Contribution
+Feel free to contribute by opening issues or submitting pull requests.
+
+📄 License
+This project is licensed under the MIT License.
