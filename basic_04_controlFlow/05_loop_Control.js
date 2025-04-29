@@ -5,8 +5,15 @@ for (let i = 0; i < 10; i++) {
 }
 
 
+// output
+// 1
+// 2
+// 3
+// 4
+// 5
+
 // continue
 for (let i = 0; i < 5; i++) {
   if (i === 2) continue;
-  console.log(i);
+  console.log(i);        // 1 2 3 4 
 }
