@@ -60,6 +60,17 @@ for (let key in person) {
     // city: New York
 }
 
+// ex2
+const obj = { a: 1, b: 2, c: 3 };
+for (let key in obj) {
+  console.log(`${key} => ${obj[key]}`);
+}
+// a => 1
+// b => 2
+// c => 3
+
+
+//que 6 .  FOR OF LOOP
 console.log("\nUsing for...of loop (Array Iteration):");
 // for...of loop (iterating over an array)
 let fruits = ["Apple", "Banana", "Cherry"];
@@ -70,3 +81,19 @@ for (let fruit of fruits) {
     // Banana
     // Cherry
 }
+
+// using in Object for of loop
+const myMap = new Map([
+  ['x', 10],
+  ['y', 20],
+  ['z', 30]
+]);
+
+for (let [key, value] of myMap) {
+  console.log(`${key} => ${value}`);
+}
+
+//x => 10
+// y => 20
+// z => 30
+
