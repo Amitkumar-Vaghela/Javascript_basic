@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>getElementsByTagName Demo</title>
+</head>
+<body>
+
+  <h2>Programming Languages</h2>
+
+  <p>JavaScript</p>
+  <p>Python</p>
+  <p>Java</p>
+
+  <button onclick="highlightParagraphs()">Highlight Paragraphs</button>
+
+  <script>
+    function highlightParagraphs() {
+      const paragraphs = document.getElementsByTagName("p");
+
+      for (let i = 0; i < paragraphs.length; i++) {
+        paragraphs[i].style.backgroundColor = "yellow";
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+{% comment %} -------------------------------------
+
+Programming Languages
+
+JavaScript
+
+Python
+
+Java
+
+Highlight Paragraphs      
+-------------------------------------------------- {% endcomment %}

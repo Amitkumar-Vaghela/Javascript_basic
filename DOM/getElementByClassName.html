@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>getElementsByClassName Demo</title>
+</head>
+<body>
+
+  <h2>Frontend Frameworks</h2>
+
+  <div class="framework">React</div>
+  <div class="framework">Vue</div>
+  <div class="framework">Angular</div>
+
+  <button onclick="highlightFrameworks()">Highlight Frameworks</button>
+
+  <script>
+    function highlightFrameworks() {
+      const items = document.getElementsByClassName("framework");
+
+      for (let i = 0; i < items.length; i++) {
+        items[i].style.color = "white";
+        items[i].style.backgroundColor = "teal";
+        items[i].style.padding = "5px";
+        items[i].style.marginBottom = "5px";
+        items[i].style.borderRadius = "5px";
+      }
+    }
+  </script>
+
+</body>
+</html>

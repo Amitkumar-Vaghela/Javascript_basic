@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>getElementsByName Demo</title>
+</head>
+<body>
+
+  <h3>Select your favorite language:</h3>
+
+  <input type="radio" name="language" value="JavaScript"> JavaScript<br>
+  <input type="radio" name="language" value="Python"> Python<br>
+  <input type="radio" name="language" value="Java"> Java<br>
+
+  <button onclick="getSelectedLanguage()">Submit</button>
+
+  <p id="result"></p>
+
+  <script>
+    function getSelectedLanguage() {
+      const languages = document.getElementsByName("language");
+      let selected = "";
+      for (let i = 0; i < languages.length; i++) {
+        if (languages[i].checked) {
+          selected = languages[i].value;
+          break;
+        }
+      }
+      document.getElementById("result").innerText = "You selected: " + selected;
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+
+{% comment %} 
+output:
+
+
+
+Select your favorite language:
+
+( ) JavaScript  
+( ) Python  
+( ) Java  
+
+[Submit]
+
+
+
+
+
+You selected: JavaScript {% endcomment %}
