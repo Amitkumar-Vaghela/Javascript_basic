@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guess the Number - Web3 Style</title>
+  <style>
+    /* Background Animation */
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(270deg, #ff00cc, #3333ff, #00ffcc, #ffcc00);
+      background-size: 800% 800%;
+      animation: gradientShift 12s ease infinite;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .game-container {
+      background: rgba(0, 0, 0, 0.6);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      color: #ffffff;
+      width: 350px;
+    }
+
+    h1 {
+      color: #00ffe0;
+      margin-bottom: 10px;
+      font-weight: 700;
+      text-shadow: 0 0 10px #00ffe0;
+    }
+
+    input[type="number"] {
+      width: 80%;
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: none;
+      text-align: center;
+      margin-top: 15px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      outline: none;
+      backdrop-filter: blur(4px);
+    }
+
+    button {
+      padding: 12px 25px;
+      margin-top: 20px;
+      margin-right: 10px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      background: #00ffe0;
+      color: #000;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #00ccaa;
+    }
+
+    .message, .prev, .remaining, .end {
+      margin-top: 15px;
+      font-size: 1.1rem;
+    }
+
+    .prev {
+      color: #ffc4ff;
+    }
+
+    .remaining {
+      color: #ffd591;
+    }
+
+    .end {
+      color: #ff7070;
+      font-size: 1.3rem;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="game-container">
+    <h1>🎮 Guess the Number</h1>
+    <input type="number" id="guessInput" placeholder="1 to 100" min="1" max="100" />
+    <br />
+    <button onclick="checkGuess()" id="submitBtn">Submit</button>
+    <button onclick="resetGame()" id="newGameBtn" class="hidden">New Game</button>
+
+    <div class="message" id="message"></div>
+    <div class="prev" id="prevGuesses">Previous Guesses: None</div>
+    <div class="remaining" id="guessRemain">Guesses Left: 10</div>
+    <div class="end" id="endMessage"></div>
+  </div>
+
+  <script>
+    let secretNumber = Math.floor(Math.random() * 100) + 1;
+    let attemptsLeft = 10;
+    let guessHistory = [];
+    let gameOver = false;
+
+    function checkGuess() {
+      if (gameOver) return;
+
+      const input = document.getElementById("guessInput");
+      const guess = Number(input.value);
+      const message = document.getElementById("message");
+      const prev = document.getElementById("prevGuesses");
+      const remain = document.getElementById("guessRemain");
+      const end = document.getElementById("endMessage");
+
+      if (!guess || guess < 1 || guess > 100) {
+        message.textContent = "⛔ Enter a number between 1 and 100!";
+        return;
+      }
+
+      guessHistory.push(guess);
+      attemptsLeft--;
+
+      if (guess === secretNumber) {
+        message.textContent = `🎉 Correct! The number was ${secretNumber}`;
+        end.textContent = `🔥 You won in ${10 - attemptsLeft} tries!`;
+        endGame();
+      } else if (attemptsLeft === 0) {
+        message.textContent = `💀 Game Over! The number was ${secretNumber}`;
+        end.textContent = "You've used all your attempts!";
+        endGame();
+      } else {
+        message.textContent = guess > secretNumber ? "📉 Too high!" : "📈 Too low!";
+      }
+
+      prev.textContent = "Previous Guesses: " + guessHistory.join(", ");
+      remain.textContent = `Guesses Left: ${attemptsLeft}`;
+      input.value = "";
+    }
+
+    function endGame() {
+      gameOver = true;
+      document.getElementById("submitBtn").disabled = true;
+      document.getElementById("newGameBtn").classList.remove("hidden");
+    }
+
+    function resetGame() {
+      secretNumber = Math.floor(Math.random() * 100) + 1;
+      attemptsLeft = 10;
+      guessHistory = [];
+      gameOver = false;
+
+      document.getElementById("message").textContent = "";
+      document.getElementById("prevGuesses").textContent = "Previous Guesses: None";
+      document.getElementById("guessRemain").textContent = "Guesses Left: 10";
+      document.getElementById("endMessage").textContent = "";
+
+      document.getElementById("guessInput").value = "";
+      document.getElementById("submitBtn").disabled = false;
+      document.getElementById("newGameBtn").classList.add("hidden");
+    }
+  </script>
+
+</body>
+</html>
