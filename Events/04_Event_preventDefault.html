@@ -1,0 +1,31 @@
+<!-- Without EventDefult -->
+<form action="https://example.com">
+  <input type="text" name="username" />
+  <button type="submit">Submit</button>
+</form>
+
+<!-- ➡️ Clicking "Submit" will take you to https://example.com — this is the default behavior. -->
+
+
+
+
+
+<!-- With EventPreventDefault -->
+<form id="myForm">
+  <input type="text" name="username" />
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+  document.getElementById("myForm").addEventListener("submit", function(event) {
+    event.preventDefault();  // Stops the form from submitting
+    alert("Form submission stopped!");
+  });
+</script>
+
+
+<!-- ➡️ Now, when you click submit:
+
+The form does not reload the page or go to another site.
+
+Instead, it runs your custom JavaScript logic (in this case, shows an alert). -->
