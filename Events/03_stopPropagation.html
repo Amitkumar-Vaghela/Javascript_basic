@@ -1,0 +1,20 @@
+<div onclick="alert('Div clicked')">
+  <button onclick="alert('Button clicked')">Click Me</button>
+</div>
+<!-- "Button clicked" is shown
+Then "Div clicked" is also shown, because the click bubbled up to the <div>
+ -->
+
+
+<div onclick="alert('Div clicked')">
+  <button onclick="myFunction(event)">Click Me</button>
+</div>
+<script>
+  function myFunction(event) {
+    event.stopPropagation();
+    alert("Button clicked");
+  }
+</script>
+<!-- 
+Only "Button clicked" shows up.
+The event does not reach the <div>. -->
