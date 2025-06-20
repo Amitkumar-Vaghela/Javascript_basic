@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Input Event</title>
+</head>
+<body>
+
+  <input type="text" oninput="liveInput(this)" placeholder="Type something...">
+
+  <script>
+    function liveInput(el) {
+      console.log("Current input: " + el.value);
+    }
+  </script>
+
+</body>
+</html>
