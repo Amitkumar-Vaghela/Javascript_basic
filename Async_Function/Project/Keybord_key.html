@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Key Press Logger</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+      background: #f2f2f2;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 60%;
+      margin: 0 auto;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 12px 16px;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #007BFF;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Key Press Logger</h1>
+  <p>Press any key on your keyboard...</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Key Code</th>
+        <th>Event Code</th>
+      </tr>
+    </thead>
+    <tbody id="logTableBody">
+      <!-- Key logs will appear here -->
+    </tbody>
+  </table>
+
+  <script>
+    document.addEventListener("keydown", function (event) {
+      const tbody = document.getElementById("logTableBody");
+
+      // Create a new row
+      const row = document.createElement("tr");
+
+      // Create and fill columns
+      const keyCell = document.createElement("td");
+      keyCell.textContent = event.key;
+
+      const keyCodeCell = document.createElement("td");
+      keyCodeCell.textContent = event.keyCode;
+
+      const codeCell = document.createElement("td");
+      codeCell.textContent = event.code;
+
+      // Append cells to row
+      row.appendChild(keyCell);
+      row.appendChild(keyCodeCell);
+      row.appendChild(codeCell);
+
+      // Append row to table body
+      tbody.appendChild(row);
+    });
+  </script>
+</body>
+</html>
