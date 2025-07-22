@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Bubbling Example</title>
+  <style>
+    #grandparent, #parent, #child {
+      padding: 20px;
+      border: 1px solid black;
+      margin: 10px;
+    }
+    #grandparent { background-color: lightblue; }
+    #parent { background-color: lightgreen; }
+    #child { background-color: lightcoral; }
+  </style>
+</head>
+<body>
+
+  <div id="grandparent">
+    Grandparent
+    <div id="parent">
+      Parent
+      <div id="child">
+        Child (Click Me)
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("grandparent").addEventListener("click", function() {
+      console.log("Grandparent clicked");
+    });
+
+    document.getElementById("parent").addEventListener("click", function() {
+      console.log("Parent clicked");
+    });
+
+    document.getElementById("child").addEventListener("click", function() {
+      console.log("Child clicked");
+    });
+  </script>
+
+</body>
+</html>
+
+
+<!-- ✅ Output in Console (when you click on Child):
+
+Child clicked
+Parent clicked
+Grandparent clicked -->
+
+
+
+
+
+
+
+<!-- 🔷 What is Event Bubbling?
+Event Bubbling is a behavior in the DOM where an event starts from the target element and bubbles up to its ancestors (parent → grandparent → ... → root).
+In bubbling:
+The innermost element handles the event first.
+Then the event propagates upward to the outer elements.
+
+
+🧠 Why This Happens?
+Because of event bubbling, the event:
+First triggers the child element's listener,
+Then bubbles up to the parent,
+And finally reaches the grandparent.
+
+🚫 How to Stop Bubbling?
+You can stop it using event.stopPropagation(): -->
+
+document.getElementById("child").addEventListener("click", function(event) {
+  console.log("Child clicked");
+  event.stopPropagation(); // stops event from bubbling up
+});
+
+<!-- Now the output will be:
+Child clicked -->
+
+
