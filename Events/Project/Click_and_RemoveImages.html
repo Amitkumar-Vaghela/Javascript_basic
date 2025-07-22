@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Click and Remove Images</title>
+  <style>
+    .image-container {
+      display: inline-block;
+      margin: 10px;
+      border: 2px solid #ccc;
+      padding: 5px;
+    }
+    img {
+      width: 150px;
+      height: 100px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Click an image to remove it</h2>
+
+  <div class="image-container">
+    <img src="https://via.placeholder.com/150/FF0000" alt="Image 1">
+  </div>
+
+  <div class="image-container">
+    <img src="https://via.placeholder.com/150/00FF00" alt="Image 2">
+  </div>
+
+  <div class="image-container">
+    <img src="https://via.placeholder.com/150/0000FF" alt="Image 3">
+  </div>
+
+  <script>
+    // Get all images
+    const images = document.querySelectorAll('img');
+
+    images.forEach(function(img) {
+      img.addEventListener('click', function(event) {
+        // Remove the image's parent container
+        event.target.parentNode.remove();
+      });
+    });
+  </script>
+
+</body>
+</html>
+
+<!-- 
+[Image 1]   [Image 2]   [Image 3]
+(Click an image to remove it)
+->
+
+
+<!-- 💡 How it works:
+Each image is inside a <div class="image-container">.
+When an image is clicked:
+event.target refers to the <img> element.
+event.target.parentNode refers to the <div> that wraps the image.
+.remove() deletes that container (and thus the image inside it). -->
