@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Capturing Example</title>
+  <style>
+    #grandparent, #parent, #child {
+      padding: 20px;
+      border: 1px solid black;
+      margin: 10px;
+    }
+    #grandparent { background-color: lightblue; }
+    #parent { background-color: lightgreen; }
+    #child { background-color: lightcoral; }
+  </style>
+</head>
+<body>
+
+  <div id="grandparent">
+    Grandparent
+    <div id="parent">
+      Parent
+      <div id="child">
+        Child (Click Me)
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("grandparent").addEventListener("click", function() {
+      console.log("Grandparent capturing");
+    }, true);
+
+    document.getElementById("parent").addEventListener("click", function() {
+      console.log("Parent capturing");
+    }, true);
+
+    document.getElementById("child").addEventListener("click", function() {
+      console.log("Child clicked");
+    }, false); // default bubbling
+  </script>
+
+</body>
+</html>
+
+
+<!-- 
+🔷 What is Event Capturing (Trickling)?
+Event Capturing is the opposite of bubbling.
+In capturing:
+The event is first captured by the outermost element,
+Then moves inward to the target element.
+This process happens before bubbling unless specified otherwise.
+
+🔶 JavaScript Event Flow Phases:
+There are 3 phases of event propagation:
+Capturing phase
+Target phase
+Bubbling phase
+By default, event listeners are registered for the bubbling phase.
+
+🔶 How to Use Capturing?
+Use the 3rd parameter in addEventListener and set it to true:
+element.addEventListener('click', callback, true);  // capture phase
+
+🖥️ Console Output When You Click on Child:
+Grandparent capturing
+Parent capturing
+Child clicked -->
